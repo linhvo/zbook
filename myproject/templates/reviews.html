@@ -7,14 +7,20 @@
             <td>Created By</td>
             <td>Time</td>
             <td>Story</td>
-            <td>Link</td>
+            <td>Pivotal Story</td>
+            <td>GitHub Link</td>
         </tr>
   {% for review in reviews %}
         <tr>
             <td>{{ review.created_by.name }}</td>
             <td>{{ review.created_timestamp|print_timestamp }}</td>
             <td>{{ review.project_name }}</td>
-            <td><a href={{ review.pv_link }}>{{ review.pv_link }}</a></td>
+            <td><a href={{ review.pv_link }}>{{ review.story_id }}</a></td>
+            {% if review.github_link %}
+            <td><a href={{ review.github_link }}>Review commit</a></td>
+            {% else %}
+            <td></td>
+            {% endif %}
         </tr>
   {% endfor %}
 {% endblock %}

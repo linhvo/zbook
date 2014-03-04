@@ -39,7 +39,7 @@ def pt_hook(request):
                 if 'review' and user.tag_name in message:
                     review_by = user
                     found_story.review_by = review_by
-                    found_story.created_timestamp=created_timestamp
+                    found_story.created_timestamp = created_timestamp
                     found_story.created_by = created_by
                     found_story.pv_link = pv_link
                     found_story.project_name = project_name
@@ -68,13 +68,12 @@ def home(request):
 
 
 def reviews(request):
+    print 'hello'
     user_id = request.GET.get('user')
     sorted_reviews = []
     if user_id:
         reviews = Review.objects.filter(review_by=int(user_id))
         sorted_reviews = sorted(reviews, key=lambda x: x.created_timestamp)
-
-
 
     return render(request, 'reviews.html', {'reviews': sorted_reviews})
 
