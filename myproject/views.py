@@ -49,7 +49,6 @@ def pt_hook(request):
                 Review.objects.create(created_timestamp=created_timestamp, created_by=created_by, pv_link=pv_link,
                                       project_name=project_name, status=status, story_type=story_type, story_id=story_id,
                                       review_by=review_by)
-    print "test"
     return HttpResponse("Got Data")
 
 
