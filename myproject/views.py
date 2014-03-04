@@ -69,7 +69,6 @@ def home(request):
 
 
 def reviews(request):
-    print 'hello'
     user_id = request.GET.get('user')
     sorted_reviews = []
     if user_id:

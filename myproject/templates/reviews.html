@@ -15,9 +15,9 @@
             <td>{{ review.created_by.name }}</td>
             <td>{{ review.created_timestamp|print_timestamp }}</td>
             <td>{{ review.project_name }}</td>
-            <td><a href={{ review.pv_link }}>{{ review.story_id }}</a></td>
+            <td><a target="_blank" href={{ review.pv_link }} >{{ review.story_id }}</a></td>
             {% if review.github_link %}
-            <td><a href={{ review.github_link }}>Review commit</a></td>
+            <td><a target="_blank" href={{ review.github_link }}>Review commit</a></td>
             {% else %}
             <td></td>
             {% endif %}
