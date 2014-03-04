@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load timetags %}
+{% block content %}
+
+    <table class="table table-hover">
+        <tr class="info">
+            <td>Created By</td>
+            <td>Time</td>
+            <td>Story</td>
+            <td>Link</td>
+        </tr>
+  {% for review in reviews %}
+        <tr>
+            <td>{{ review.created_by.name }}</td>
+            <td>{{ review.created_timestamp|print_timestamp }}</td>
+            <td>{{ review.project_name }}</td>
+            <td><a href={{ review.pv_link }}>{{ review.pv_link }}</a></td>
+        </tr>
+  {% endfor %}
+{% endblock %}
+    </table>
