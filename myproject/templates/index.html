@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+    <table class="table table-hover">
+        <tr class="success">
+            <td>Review By</td>
+            <td>Number of Reviews</td>
+        </tr>
+  {% for result in results %}
+        <tr>
+            <td><a href="http://lvo.ngrok.com/reviews/?user={{ result.user.id }}">{{ result.user.name }}</a></td>
+            <td>{{ result.reviews }}</td>
+        </tr>
+  {% endfor %}
+{% endblock %}
+    </table>
