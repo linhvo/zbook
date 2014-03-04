@@ -28,7 +28,7 @@ def pt_hook(request):
     if github_link:
         github_link = github_link[0]
     else:
-        github_link = None
+        github_link = ''
     if found_story:
         found_story = Review.objects.filter(story_id=story_id)[0]
         if status == 'delivered':
@@ -58,7 +58,6 @@ def pt_hook(request):
 
 
 def home(request):
-    print 'test'
     users = User.objects.all()
     results = []
     for user in users:
