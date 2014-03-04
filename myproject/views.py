@@ -58,6 +58,7 @@ def pt_hook(request):
 
 
 def home(request):
+    print 'test'
     users = User.objects.all()
     results = []
     for user in users:
