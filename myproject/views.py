@@ -1,4 +1,5 @@
 import json
+import re
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
 from django.conf import settings
@@ -22,9 +23,9 @@ def pt_hook(request):
     pv_link = data['primary_resources'][0]['url']
     project_name = data['primary_resources'][0]['name']
     story_type = data['primary_resources'][0]['story_type']
-    # github_link = data['']
     # estimate = data['']
     message = data['message']
+    github_link = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message)
     if found_story:
         found_story = Review.objects.filter(story_id=story_id)[0]
         if status == 'delivered':
@@ -53,6 +54,7 @@ def pt_hook(request):
 
 
 def home(request):
+    print 'test'
     users = User.objects.all()
     results = []
     for user in users:
